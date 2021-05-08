@@ -9,77 +9,65 @@ import { getPaths } from './docPaths'
 
 // List of known missing resources
 const missingFiles = [
-    'https://docs.unrealengine.com:443/Include/CSS/fonts/open-sans-v15-latin-regular.woff',
-    'https://docs.unrealengine.com:443/Include/CSS/fonts/open-sans-v15-latin-regular.woff2',
-    'https://docs.unrealengine.com:443/Include/CSS/fonts/brutal/BrutalType-Regular/BrutalType-Regular.woff',
-    'https://docs.unrealengine.com:443/Include/CSS/fonts/brutal/BrutalType-Bold/BrutalType-Bold.woff',
-    'https://docs.unrealengine.com:443/Include/CSS/fonts/fontawesome/fa-regular-400.woff2',
-    'https://docs.unrealengine.com:443/Include/CSS/fonts/fontawesome/fa-solid-900.woff2',
-    'https://docs.unrealengine.com:443/Include/Images/windows_logo.png',
-    'https://docs.unrealengine.com:443/Include/Images/epic_logo.png',
-    'https://docs.unrealengine.com:443/Include/Images/button.png',
-    'https://docs.unrealengine.com:443/Include/Images/button-open.png',
-    'https://docs.unrealengine.com:443/Include/Images/button-closed.png',
-    'https://docs.unrealengine.com:443/Include/Images/arrow_down.png'
 ]
 
 // Different doc paths
 const paths = getPaths()
-const otherBase = paths[paths.length - 1]
-const otherENUS = path.join(otherBase, 'en-US')
-const otherImages = path.join(otherBase, 'images')
-const otherInclude = path.join(otherBase, 'include')
+const rootBase = paths[paths.length - 1]
+const rootENUS = path.join(rootBase, 'en-US')
+const rootImages = path.join(rootBase, 'images')
+const rootInclude = path.join(rootBase, 'include')
 
-// Make sure the other dirs exist
-if (!fs.existsSync(otherBase)) {
-    fs.mkdirSync(otherBase, { recursive: true })
+// Make sure the root dirs exist
+if (!fs.existsSync(rootBase)) {
+    fs.mkdirSync(rootBase, { recursive: true })
 }
 
-if (!fs.existsSync(otherENUS)) {
-    fs.mkdirSync(otherENUS, { recursive: true })
+if (!fs.existsSync(rootENUS)) {
+    fs.mkdirSync(rootENUS, { recursive: true })
 }
 
-if (!fs.existsSync(otherImages)) {
-    fs.mkdirSync(otherImages, { recursive: true })
+if (!fs.existsSync(rootImages)) {
+    fs.mkdirSync(rootImages, { recursive: true })
 }
 
-if (!fs.existsSync(otherInclude)) {
-    fs.mkdirSync(otherInclude, { recursive: true })
+if (!fs.existsSync(rootInclude)) {
+    fs.mkdirSync(rootInclude, { recursive: true })
 }
 
-// Merge common files from other doc folders
+// Merge common files from root doc folders
 for (const docPath of paths) {
-    if (docPath !== otherBase && fs.existsSync(docPath)) {
+    if (docPath !== rootBase && fs.existsSync(docPath)) {
         // Merge then delete 'images'
         if (fs.existsSync(path.join(docPath, 'images'))) {
-            mergedirs(path.join(docPath, 'images'), otherImages, 'skip')
+            mergedirs(path.join(docPath, 'images'), rootImages, 'skip')
             child_process.execSync(`rm -rf "${path.join(docPath, 'images')}"`)
         }
 
         // Merge then delete 'include'
         if (fs.existsSync(path.join(docPath, 'include'))) {
-            mergedirs(path.join(docPath, 'include'), otherInclude, 'skip')
+            mergedirs(path.join(docPath, 'include'), rootInclude, 'skip')
             child_process.execSync(`rm -rf "${path.join(docPath, 'include')}"`)
         }
     }
 }
 
 // Grab missing resources
-downloadMissingFiles(missingFiles, otherBase);
+downloadMissingFiles(missingFiles, rootBase);
 
 // Clean up bad base URLs
 const urlRegexHTML = /(http(s)?:\/\/)(docs\.unrealengine\.com)(:443)?/g
 const urlRegexJSCSS = /(http(s)?:\/\/)?(docs\.unrealengine\.com)(:443)?/g
-const navBarRegex = /baseURL\+lang/g
+const navBarRegex = /n=host\+base/g
 
-replace(path.join(otherENUS, 'index.html'), urlRegexHTML)
-replace(path.join(otherENUS, 'navTree.html'), urlRegexHTML)
+replace(path.join(rootENUS, 'index.html'), urlRegexHTML)
+replace(path.join(rootENUS, 'navTree.html'), urlRegexHTML)
 
-let navbarJS = path.join(otherBase, 'include', 'Javascript', 'navigationBar.js')
-replace(navbarJS, navBarRegex, '"http://localhost:3000/" + lang')
+let navbarJS = path.join(rootBase, 'include', 'Javascript', 'navigationBar.js')
+replace(navbarJS, navBarRegex, 'n=host+":3000"+base')
 
-replace(getListOfFiles(path.join(otherBase, 'include', 'CSS')), urlRegexJSCSS)
-replace(getListOfFiles(path.join(otherBase, 'include', 'Javascript')), urlRegexJSCSS)
+replace(getListOfFiles(path.join(rootBase, 'include', 'CSS')), urlRegexJSCSS)
+replace(getListOfFiles(path.join(rootBase, 'include', 'Javascript')), urlRegexJSCSS)
 
 function replace(file, regex, replaceWith) {
     replaceWith = replaceWith || ''

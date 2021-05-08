@@ -12,13 +12,15 @@ robots="-s0" # Ignore the robots.txt limits (0 is ignore)
 rateLimit="-A0" # Bitrate limit (0 means no limit)
 maxConnects="-%c0" # Max connections per second (0 means no limit)
 connects="-c4" # Number of simultaneous connections
+debug="-z -Z -v" # z extra infos log, Z debug log, v verbose screen mode
 
 httrack -%l "en" -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" \
     -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x, %s -->" \
-    https://docs.unrealengine.com:443/en-US/$1/index.html -i -O ./$2/ \
+    https://docs.unrealengine.com/en-US/$1/index.html \
+    -i -O ./$2/ \
     -%v ${disableSec} ${linkLimit} ${connects} ${maxConnects} ${rateLimit} ${robots} \
     $3 \
-    +docs.unrealengine.com:443/en-US/$1/* \
-    +docs.unrealengine.com:443/include/* \
-    +docs.unrealengine.com:443/images/* \
-    +static-assets-prod.epicgames.com/*
+    +docs.unrealengine.com/en-US/$1/* \
+    +docs.unrealengine.com/Include/* \
+    +docs.unrealengine.com/Images/* \
+    +static-assets-prod.unrealengine.com/*

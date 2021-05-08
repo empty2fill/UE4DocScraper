@@ -24,8 +24,8 @@ To browse the files locally once they are downloaded, run the following commands
 I have divided the documentation into several separate pieces to make downloading and maintenance easier:
 - **C++ API**: this grabs everything under en-us/API, documents the C++ scripting engine.
 - **Blueprint API**: everything under en-us/BlueprintAPI, documents the Blueprint scripting engine.
-- **Engine**: everything under en-us/Engine (but not en-us/Engine/Editor), documents the core engine architecture.
-- **Editor**: everything under en-us/Engine/Editor, documents the main editor GUI.
+- **Python API**: everything under en-us/PythonAPI, documents the Python scripting engine.
+- **Samples And Tutorials**: everything under en-us/Resources, documents the samples and tutorials.
 - **Guides**: Everything else that isn't covered above (mostly custom guides and conceptual documentation).
 
-If you look in the package.json file you can see the 'scripts' that are supported by 'npm run' for each of the individual parts.  If you do any individual parts, make sure you also run 'scrape:extras' and 'scrape:celanup' which will add some universal files and changes that are needed for everything to work.
+If you look in the package.json file you can see the 'scripts' that are supported by 'npm run' for each of the individual parts.  If you do any individual parts, make sure you also run 'scrape:extras' and 'scrape:cleanup' which will add some universal files and changes that are needed for everything to work.

@@ -12,28 +12,36 @@ robots="-s0" # Ignore the robots.txt limits (0 is ignore)
 rateLimit="-A0" # Bitrate limit (0 means no limit)
 maxConnects="-%c0" # Max connections per second (0 means no limit)
 connects="-c4" # Number of simultaneous connections
+debug="-z -Z -v" # z extra infos log, Z debug log, v verbose screen mode
 
 httrack -%l "en" -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" \
     -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x, %s -->" \
-    https://docs.unrealengine.com:443/en-US/GettingStarted/index.html \
-    https://docs.unrealengine.com:443/en-US/Programming/index.html \
-    https://docs.unrealengine.com:443/en-US/Blueprints/index.html \
-    https://docs.unrealengine.com:443/en-US/Gameplay/index.html \
-    https://docs.unrealengine.com:443/en-US/Resources/index.html \
-    https://docs.unrealengine.com:443/en-US/Platforms/index.html \
-    https://docs.unrealengine.com:443/en-US/Support/index.html \
-    https://docs.unrealengine.com:443/en-US/EarlyAccessFeatures/index.html \
-    https://docs.unrealengine.com:443/en-US/ExperimentalFeatures/index.html \
-    -i -O ./$1/ -%v ${disableSec} ${linkLimit} ${connects} ${maxConnects} ${rateLimit} ${robots} \
-    +docs.unrealengine.com:443/en-US/GettingStarted/* \
-    +docs.unrealengine.com:443/en-US/Programming/* \
-    +docs.unrealengine.com:443/en-US/Blueprints/* \
-    +docs.unrealengine.com:443/en-US/Gameplay/* \
-    +docs.unrealengine.com:443/en-US/Resources/* \
-    +docs.unrealengine.com:443/en-US/Platforms/* \
-    +docs.unrealengine.com:443/en-US/Support/* \
-    +docs.unrealengine.com:443/en-US/EarlyAccessFeatures/* \
-    +docs.unrealengine.com:443/en-US/ExperimentalFeatures/* \
-    +docs.unrealengine.com:443/include/* \
-    +docs.unrealengine.com:443/images/* \
-    +static-assets-prod.epicgames.com/*
+    https://docs.unrealengine.com/en-US/WhatsNew/index.html \
+    https://docs.unrealengine.com/en-US/Basics/index.html \
+    https://docs.unrealengine.com/en-US/WorkingWithContent/index.html \
+    https://docs.unrealengine.com/en-US/BuildingWorlds/index.html \
+    https://docs.unrealengine.com/en-US/RenderingAndGraphics/index.html \
+    https://docs.unrealengine.com/en-US/ProgrammingAndScripting/index.html \
+    https://docs.unrealengine.com/en-US/InteractiveExperiences/index.html \
+    https://docs.unrealengine.com/en-US/AnimatingObjects/index.html \
+    https://docs.unrealengine.com/en-US/WorkingWithMedia/index.html \
+    https://docs.unrealengine.com/en-US/ProductionPipelines/index.html \
+    https://docs.unrealengine.com/en-US/TestingAndOptimization/index.html \
+    https://docs.unrealengine.com/en-US/SharingAndReleasing/index.html \
+    -i -O ./$1/ \
+    -%v ${disableSec} ${linkLimit} ${connects} ${maxConnects} ${rateLimit} ${robots} \
+    +docs.unrealengine.com/en-US/WhatsNew/* \
+    +docs.unrealengine.com/en-US/Basics/* \
+    +docs.unrealengine.com/en-US/WorkingWithContent/* \
+    +docs.unrealengine.com/en-US/BuildingWorlds/* \
+    +docs.unrealengine.com/en-US/RenderingAndGraphics/* \
+    +docs.unrealengine.com/en-US/ProgrammingAndScripting/* \
+    +docs.unrealengine.com/en-US/InteractiveExperiences/* \
+    +docs.unrealengine.com/en-US/AnimatingObjects/* \
+    +docs.unrealengine.com/en-US/WorkingWithMedia/* \
+    +docs.unrealengine.com/en-US/ProductionPipelines/* \
+    +docs.unrealengine.com/en-US/TestingAndOptimization/* \
+    +docs.unrealengine.com/en-US/SharingAndReleasing/* \
+    +docs.unrealengine.com/include/* \
+    +docs.unrealengine.com/images/* \
+    +static-assets-prod.unrealengine.com/*
