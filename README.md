@@ -8,7 +8,7 @@ This is a tool that will gather all the Unreal Engine 4 documentation located at
 This tool requires the following 3rd party program to be installed:
 - nodejs: https://nodejs.org/
 - bash: for windows, I recommend installing [git for windows](https://git-scm.com/download/win) to get bash
-- HTTrack: https://www.httrack.com/page/2/en/index.html - Make sure the main httrack executable is in your path
+- HTTrack: https://github.com/empty2fill/httrack/releases/tag/3.49.2.1 - Make sure the main httrack executable is in your path
 
 ## Quick Start
 To create a local copy of the documentation, install the above dependencies, then run the following commands:

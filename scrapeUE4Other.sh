@@ -16,32 +16,38 @@ debug="-z -Z -v" # z extra infos log, Z debug log, v verbose screen mode
 
 httrack -%l "en" -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" \
     -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x, %s -->" \
-    https://docs.unrealengine.com/en-US/WhatsNew/index.html \
-    https://docs.unrealengine.com/en-US/Basics/index.html \
-    https://docs.unrealengine.com/en-US/WorkingWithContent/index.html \
-    https://docs.unrealengine.com/en-US/BuildingWorlds/index.html \
-    https://docs.unrealengine.com/en-US/RenderingAndGraphics/index.html \
-    https://docs.unrealengine.com/en-US/ProgrammingAndScripting/index.html \
-    https://docs.unrealengine.com/en-US/InteractiveExperiences/index.html \
-    https://docs.unrealengine.com/en-US/AnimatingObjects/index.html \
-    https://docs.unrealengine.com/en-US/WorkingWithMedia/index.html \
-    https://docs.unrealengine.com/en-US/ProductionPipelines/index.html \
-    https://docs.unrealengine.com/en-US/TestingAndOptimization/index.html \
-    https://docs.unrealengine.com/en-US/SharingAndReleasing/index.html \
+    https://docs.unrealengine.com/4.27/en-US/WhatsNew/index.html \
+    https://docs.unrealengine.com/4.27/en-US/Basics/index.html \
+    https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/index.html \
+    https://docs.unrealengine.com/4.27/en-US/BuildingWorlds/index.html \
+    https://docs.unrealengine.com/4.27/en-US/RenderingAndGraphics/index.html \
+    https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/index.html \
+    https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/index.html \
+    https://docs.unrealengine.com/4.27/en-US/AnimatingObjects/index.html \
+    https://docs.unrealengine.com/4.27/en-US/WorkingWithAudio/index.html \
+    https://docs.unrealengine.com/4.27/en-US/WorkingWithMedia/index.html \
+    https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/index.html \
+    https://docs.unrealengine.com/4.27/en-US/TestingAndOptimization/index.html \
+    https://docs.unrealengine.com/4.27/en-US/SharingAndReleasing/index.html \
     -i -O ./$1/ \
     -%v ${disableSec} ${linkLimit} ${connects} ${maxConnects} ${rateLimit} ${robots} \
-    +docs.unrealengine.com/en-US/WhatsNew/* \
-    +docs.unrealengine.com/en-US/Basics/* \
-    +docs.unrealengine.com/en-US/WorkingWithContent/* \
-    +docs.unrealengine.com/en-US/BuildingWorlds/* \
-    +docs.unrealengine.com/en-US/RenderingAndGraphics/* \
-    +docs.unrealengine.com/en-US/ProgrammingAndScripting/* \
-    +docs.unrealengine.com/en-US/InteractiveExperiences/* \
-    +docs.unrealengine.com/en-US/AnimatingObjects/* \
-    +docs.unrealengine.com/en-US/WorkingWithMedia/* \
-    +docs.unrealengine.com/en-US/ProductionPipelines/* \
-    +docs.unrealengine.com/en-US/TestingAndOptimization/* \
-    +docs.unrealengine.com/en-US/SharingAndReleasing/* \
-    +docs.unrealengine.com/include/* \
-    +docs.unrealengine.com/images/* \
+    -docs.unrealengine.com/4.27/en-US/API/* \
+    -docs.unrealengine.com/4.27/en-US/BlueprintAPI/* \
+    -docs.unrealengine.com/4.27/en-US/PythonAPI/* \
+    -docs.unrealengine.com/4.27/en-US/Resources/* \
+    +docs.unrealengine.com/4.27/en-US/WhatsNew/* \
+    +docs.unrealengine.com/4.27/en-US/Basics/* \
+    +docs.unrealengine.com/4.27/en-US/WorkingWithContent/* \
+    +docs.unrealengine.com/4.27/en-US/BuildingWorlds/* \
+    +docs.unrealengine.com/4.27/en-US/RenderingAndGraphics/* \
+    +docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/* \
+    +docs.unrealengine.com/4.27/en-US/InteractiveExperiences/* \
+    +docs.unrealengine.com/4.27/en-US/AnimatingObjects/* \
+    +docs.unrealengine.com/4.27/en-US/WorkingWithAudio/* \
+    +docs.unrealengine.com/4.27/en-US/WorkingWithMedia/* \
+    +docs.unrealengine.com/4.27/en-US/ProductionPipelines/* \
+    +docs.unrealengine.com/4.27/en-US/TestingAndOptimization/* \
+    +docs.unrealengine.com/4.27/en-US/SharingAndReleasing/* \
+    +docs.unrealengine.com/4.27/Include/* \
+    +docs.unrealengine.com/4.27/Images/* \
     +static-assets-prod.unrealengine.com/*

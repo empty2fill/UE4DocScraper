@@ -16,11 +16,11 @@ debug="-z -Z -v" # z extra infos log, Z debug log, v verbose screen mode
 
 httrack -%l "en" -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" \
     -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x, %s -->" \
-    https://docs.unrealengine.com/en-US/$1/index.html \
+    https://docs.unrealengine.com/4.27/en-US/$1/index.html \
     -i -O ./$2/ \
     -%v ${disableSec} ${linkLimit} ${connects} ${maxConnects} ${rateLimit} ${robots} \
     $3 \
-    +docs.unrealengine.com/en-US/$1/* \
-    +docs.unrealengine.com/Include/* \
-    +docs.unrealengine.com/Images/* \
+    +docs.unrealengine.com/4.27/en-US/$1/* \
+    +docs.unrealengine.com/4.27/Include/* \
+    +docs.unrealengine.com/4.27/Images/* \
     +static-assets-prod.unrealengine.com/*
