@@ -35,6 +35,7 @@ httrack -%l "en" -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" \
     -docs.unrealengine.com/4.27/en-US/BlueprintAPI/* \
     -docs.unrealengine.com/4.27/en-US/PythonAPI/* \
     -docs.unrealengine.com/4.27/en-US/Resources/* \
+    -*/SiteIndex/index.html?tags=* \
     +docs.unrealengine.com/4.27/en-US/WhatsNew/* \
     +docs.unrealengine.com/4.27/en-US/Basics/* \
     +docs.unrealengine.com/4.27/en-US/WorkingWithContent/* \

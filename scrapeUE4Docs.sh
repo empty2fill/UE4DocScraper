@@ -20,6 +20,7 @@ httrack -%l "en" -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" \
     -i -O ./$2/ \
     -%v ${disableSec} ${linkLimit} ${connects} ${maxConnects} ${rateLimit} ${robots} \
     $3 \
+    -*/SiteIndex/index.html?tags=* \
     +docs.unrealengine.com/4.27/en-US/$1/* \
     +docs.unrealengine.com/4.27/Include/* \
     +docs.unrealengine.com/4.27/Images/* \
